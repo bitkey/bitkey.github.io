@@ -32,6 +32,10 @@ p {
     line-height: 1.5;
 }
 
+.table {
+    margin-bottom: 35px;
+}
+
 /* navbar */
 .navbar {
     margin-bottom: 0;

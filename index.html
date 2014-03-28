@@ -77,6 +77,57 @@
 
         <p>BitKey is a portable device that a computer can boot from, containing a prefabricated independent operating system environment which is engineered from the ground up to prioritize security while maximizing usability, in order to provide a safe, reliable and easy to use practical platform for high risk applications such as bitcoin transactions.</p>
 
+        <h3>Booting the Live OS (red)</h3>
+
+        <p>You boot the OS into RAM from CD (preferably) or from a <i>red</i> USB which you aren't supposed to use for anything else to prevent malicious modification.</p>
+
+        <p>Booting from CD is more secure because it's physically read-only and you don't have to worry about BadBIOS style attacks against the USB stack.</p>
+
+        <p>In the future we'd like to explore making the red USB physically read-only (ROM chip). Currently there's no secure way to do that with commodity USB hardware so we'll be working around that at a software level.</p>
+
+        <h3>Boot modes</h3>
+
+        <p>BitKey is a single image supporting two use cases via three modes of operation. At boot time, you select the desired mode from the bootloader menu:</p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Mode</td>
+              <td>Wallet</td> 
+              <td>Transactions</td>
+              <td>Security</td>
+              <td>Convenience</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cold-offline</td>
+              <td>create</td>
+              <td>sign</td>
+              <td>high</td>
+              <td>less</td>
+            </tr>
+            <tr>
+              <td>cold-online</td>
+              <td>watch</td>
+              <td>prepare</td>
+              <td>high</td>
+              <td>less</td>
+            </tr>
+            <tr>
+              <td>hot-online</td>
+              <td>create &amp; watch</td>
+              <td>prepare &amp; sign</td>
+              <td>medium</td>
+              <td>more</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Data storage (black)</h3>
+
+        <p>In addition to the BitKey device, you'll need a <i>black</i> USB key which will serve as storage for encrypted wallet files, unencrypted master public key for watch-only mode, and optionally as a data shuttle for unsigned and signed transactions between cold online and offline modes.</p>
+
       </div>
     </div>
   </section>
