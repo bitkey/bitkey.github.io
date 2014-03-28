@@ -316,9 +316,14 @@
               <h4>Encrypted Wallet Storage</h4>
               <p>Wallet files are stored in a LUKS encrypted loopback filesystem. During creation, estimated passphrase strength such as entropy and crack time is displayed.</p>
 
-              <h4>Deterministic builds (planned)</h4>
-              <p>We will be improving our <a href="http://www.turnkeylinux.org/tkldev">open source build chain</a> to support deterministic bit-for-bit builds, to ensure the build machines have not been compromised, as well as enabling the community to verify integrity, and create a community based signed chain of trust for each released image build.</p>
-            </div>
+              <h4>Deterministic builds (planned)</h4> <p>We will be
+              improving TurnKey's <a
+              href="http://www.turnkeylinux.org/tkldev">open source
+              build chain</a> to support Gitian-style deterministic
+              builds, to make it harder to compromise the build process,
+              allow the community to independently verify full system
+             integrity bit-for-bit, and create a community based signed
+              chain of trust for each released version.</p> </div>
 
             <div class="col-lg-6">
               <h4>Lightweight Debian Live OS</h4>
