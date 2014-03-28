@@ -59,6 +59,15 @@ h6 {
     font-size: 18px;
 }
 
+#mc_embed_signup {
+    padding: 40px;
+}
+
+#mc_embed_signup #mce-EMAIL {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 /* min-width overrides */
 @media(min-width:767px) {
     .brand-heading {
@@ -72,6 +81,12 @@ h6 {
 
     .intro-text {
         font-size: 25px;
+    }
+
+    #mc_embed_signup #mce-EMAIL {
+        width: 350px;
+        margin-bottom: 0px;
+        text-align: left;
     }
 }
 
