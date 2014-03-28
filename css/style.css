@@ -26,6 +26,12 @@ h6 {
     letter-spacing: 1px;
 }
 
+p {
+    margin: 0 0 25px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 /* sections */
 .brand-heading {
     font-size: 40px;
@@ -70,6 +76,11 @@ h6 {
 
 /* min-width overrides */
 @media(min-width:767px) {
+    p {
+        margin: 0 0 35px;
+        line-height: 1.6;
+    }
+
     .brand-heading {
         font-size: 100px;
     }
