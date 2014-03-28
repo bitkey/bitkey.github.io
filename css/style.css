@@ -32,6 +32,19 @@ p {
     line-height: 1.5;
 }
 
+a {
+    color: #f0ad4e;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #ed9c28;
+}
+
 .table {
     margin-bottom: 35px;
 }
