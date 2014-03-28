@@ -136,6 +136,7 @@ a:focus {
     text-align: center;
 }
 
+.about-section,
 .features-section {
     width: 100%;
     padding: 50px 0;
@@ -151,6 +152,10 @@ a:focus {
 .features h4 {
     margin-bottom: 20px;
     font-size: 16px;
+}
+
+.about-contact {
+    margin-bottom: 30px;
 }
 
 /* min-width overrides */
