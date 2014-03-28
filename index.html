@@ -34,6 +34,7 @@
         <ul class="nav navbar-nav">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#overview">Overview</a></li>
+          <li class="page-scroll"><a href="#features">Features</a></li>
         </ul>
       </div>
     </div>
@@ -128,6 +129,42 @@
 
         <p>In addition to the BitKey device, you'll need a <i>black</i> USB key which will serve as storage for encrypted wallet files, unencrypted master public key for watch-only mode, and optionally as a data shuttle for unsigned and signed transactions between cold online and offline modes.</p>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section id="features" class="content-section">
+    <div class="features-section">
+      <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2>Features</h2>
+
+          <div class="row features">
+            <div class="col-lg-6">
+              <h4>Open Source</h4>
+              <p>BitKey is open source and hosted on Github. Available for peer-review as well as improvement by the bitcoin community.</p>
+
+              <h4>Encrypted Wallet Storage</h4>
+              <p>Wallet files are stored in a LUKS encrypted loopback filesystem. During creation, estimated passphrase strength such as entropy and crack time is displayed.</p>
+
+              <h4>Deterministic builds (planned)</h4>
+              <p>We will be improving our already open source build chain to support deterministic bit-for-bit builds, to ensure the build machines have not been compromised, as well as enabling the community to verify integrity, and create a community based signed chain of trust for each released image build.</p>
+            </div>
+
+            <div class="col-lg-6">
+              <h4>Lightweight Debian Live OS</h4>
+              <p>BitKey boots live (no installation required), and copies itself into RAM for both speed as well as security of the boot media.</p>
+
+              <h4>Included software</h4>
+              <p>Electrum bitcoin client, incognito chromium, bitaddress, zxcvbn. File manager, network and wireless manager. Auto-mounting USB storage devices support.</p>
+
+              <h4>Multi layered security (planned)</h4>
+              <p>We will be implementing exotic security mechansims such as mandatory access control (MAC), PAX, trusted path execution (TPE), position independent code address space layout randomization (PIE-ASLR), discretionary access control (DAC), jails, exploit countermeasures (ECM) and raw IO/Memory protections.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>

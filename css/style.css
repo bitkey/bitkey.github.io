@@ -123,6 +123,23 @@ p {
     text-align: center;
 }
 
+.features-section {
+    width: 100%;
+    padding: 50px 0;
+    color: #fff;
+    background: url(../img/intro-bg.jpg) no-repeat center center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.features h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
 /* min-width overrides */
 @media(min-width:767px) {
     p {
