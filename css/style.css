@@ -158,6 +158,27 @@ a:focus {
     margin-bottom: 30px;
 }
 
+.modal-content {
+    color: #4d4d4d;
+    text-shadow: none;
+}
+
+.tab-content {
+    background-color: #eee;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 15px 10px;
+}
+
+.tab-pane > h4 {
+    margin: 20px 0px;
+}
+
+.nav-tabs.nav-justified > .active > a {
+    background-color: #eee;
+    border-bottom-color: #eee;
+}
+
 /* min-width overrides */
 @media(min-width:767px) {
     p {

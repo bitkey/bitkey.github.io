@@ -104,21 +104,21 @@
           </thead>
           <tbody>
             <tr>
-              <td>cold-offline</td>
+              <td><a href="#usage-cold" data-toggle="modal">cold-offline</a></td>
               <td>create</td>
               <td>sign</td>
               <td>high</td>
               <td>less</td>
             </tr>
             <tr>
-              <td>cold-online</td>
+              <td><a href="#usage-cold" data-toggle="modal">cold-online</a></td>
               <td>watch</td>
               <td>prepare</td>
               <td>high</td>
               <td>less</td>
             </tr>
             <tr>
-              <td>hot-online</td>
+              <td><a href="#usage-hot" data-toggle="modal">hot-online</a></td>
               <td>create &amp; watch</td>
               <td>prepare &amp; sign</td>
               <td>medium</td>
@@ -134,6 +134,155 @@
       </div>
     </div>
   </section>
+
+  <!-- usage modals -->
+  <div id="usage-hot" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="usage-hot-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="usage-hot-label">Usage: Hot (online)</h4>
+        </div>
+        <div class="modal-body">
+          <p>Fully functional bitcoin client. This mode is appropriate for relatively small-medium bitcoin transactions.</p>
+
+          <li>Insert BitKey device and power on PC</li>
+          <li>Select <code>hot-online</code> from the bootmenu</li>
+          <li>Once the OS has loaded, remove BitKey device</li>
+          <li>Insert <i>black</i> data storage USB device</li>
+          <li>Open Electrum</li>
+          <ul>
+            <li>Enter passhprase for secure encrypted storage</li>
+            <li>Select <code>create wallet</code></li>
+            <li>Write down mnemonic seed on paper (store in lockbox)</li>
+            <li>Prepare and sign bitcoin transactions...</li>
+          </ul>
+          <li>Close Electrum</li>
+          <li>Remove <i>black</i> data storage USB device</li>
+          <li>Shutdown BitKey</li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="usage-cold" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="usage-cold-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="usage-cold-label">Usage: Cold (online/offline)</h4>
+        </div>
+        <div class="modal-body">
+          <p>Functionality is split between the cold-online and cold-offline modes (prepare &amp; sign respectively). These modes are appropriate for large bitcoin transactions and/or paranoid folks.</p>
+
+          <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#single" data-toggle="tab">Single PC</a></li>
+            <li><a href="#multiple" data-toggle="tab">Multiple PC's</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="single">
+
+              <h4>cold-offline (create wallet)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-offline</code> from the bootmenu</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Select <code>create wallet</code></li>
+                <li>Write down mnemonic seed on paper (store in lockbox)</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+
+              <h4>cold-online (prepare transaction)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-online</code> from the bootmenu</li>
+              <li>Once the OS has loaded, remove BitKey device</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Prepare transaction, save to <i>black</i> USB</li>
+              </ul>
+              <li>Close electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+
+              <h4>cold-offline (sign transaction)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-offline</code> from the bootmenu</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Import unsigned transaction from <i>black</i> USB</li>
+                <li>Sign transaction and save to <i>black</i> USB</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+
+              <h4>cold-online (transmit signed transaction)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-online</code> from the bootmenu</li>
+              <li>Once the OS has loaded, remove BitKey device</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Load signed transaction from <i>black</i> USB and transmit</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+            </div>
+
+            <div class="tab-pane fade" id="multiple">
+
+              <p>The recommended workflow with multiple PC's is to use another USB storage device, which we'll call <i>black-shuttle</i>, for transfering data between your regular PC and BitKey cold-offline.</p>
+
+              <h4>BitKey (create wallet)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-offline</code> from the bootmenu</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Select <code>create wallet</code></li>
+                <li>Write down mnemonic seed on paper (store in lockbox)</li>
+              </ul>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>In Electrum, export <i>master public key</i> to <i>black-shuttle</i> USB</li>
+              <li>Remove <i>black-shuttle</i> USB</li>
+
+              <h4>Regular PC (prepare transaction)</h4>
+              <li>Install Electrum</li>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Select <code>create watch-only wallet</code></li>
+                <li>Enter <i>master public key</i></li>
+                <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+              </ul>
+              <li>Remove <i>black-shuttle</i> USB</li>
+
+              <h4>BitKey (sign transaction)</h4>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>In Electrum, import unsigned transaction, sign it, save to <i>black-shuttle</i> USB</li>
+              <li>Remove <i>black-shuttle</i> USB</li>
+
+              <h4>Regular PC (transmit signed transaction)</h4>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>In Electrum, import signed transaction and transmit to network</li>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- features -->
   <section id="features" class="content-section">
