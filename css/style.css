@@ -154,6 +154,12 @@ a:focus {
     font-size: 16px;
 }
 
+.download-section .list-inline>li {
+    padding-top: 10px;
+    display: list-item;
+    text-align: center;
+}
+
 .about-contact {
     margin-bottom: 30px;
 }
@@ -221,6 +227,12 @@ a:focus {
     #mc_embed_signup #mce-EMAIL {
         width: 350px;
         margin-bottom: 0px;
+        text-align: left;
+    }
+
+    .download-section .list-inline>li {
+        padding-top: 0px;
+        display: inline-block;
         text-align: left;
     }
 }
