@@ -45,6 +45,11 @@ a:focus {
     color: #ed9c28;
 }
 
+video {
+    max-width: 100%;
+    height: auto;
+}
+
 .table {
     margin-bottom: 35px;
 }
