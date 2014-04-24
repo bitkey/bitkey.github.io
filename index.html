@@ -357,40 +357,45 @@
           <p>You can download the latest BitKey ISO image that can be burned on a read-only CDROM or <a href="http://www.turnkeylinux.org/blog/iso2usb">USB key</a>.  Alternatively, you can build the ISO image yourself from source.</p>
 
           <ul class="list-inline">
-            <li><a href="#cs" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> ISO (64bit)</a></li>
-            <li><a href="#cs" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> Signature</a></li>
-            <li><a href="#cs" data-toggle="modal" class="btn btn-info btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Source</span></a></li>
+            <li><a href="#iso" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> ISO (64bit)</a></li>
+            <li><a href="https://github.com/bitkey/bitkey" class="btn btn-info btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Source</span></a></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- coming soon modal -->
-  <div id="cs" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cs-label" aria-hidden="true">
+  <!-- iso download modal -->
+  <div id="iso" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="iso-label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="cs">Coming soon...</h4>
+          <h4 class="modal-title" id="iso">Security and news updates</h4>
         </div>
         <div class="modal-body">
-          <p>We're actively working on getting BitKey ready for release.</p>
+          <p>Sign up to BitKey's low-traffic announcements newsletter to
+          get important security bulletins and updates on major new
+          releases.</p>
 
-          <p>Seeing as you're already here, BitKey is an idea/hypothesis
-          that needs rigorous testing, not just the implementation but
-          also the idea in general.</p>
-          
-          <p>By giving us a way to get in touch with you, we'll give you early access to a pre-release version and hopefully discuss the idea further with you in order to validate that it solves the problem it was designed for, in the best way possible.</p>
-
-          <div id="mc_embed_signup" class="form-inline">
+          <div style="padding-top: 0px" id="mc_embed_signup" class="form-inline">
             <form action="http://bitkey.us8.list-manage.com/subscribe/post?u=5620a8cb48b1076ba95552a8b&amp;id=d95bc45325" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <input type="email" value="" name="EMAIL" class="form-control email" id="mce-EMAIL" placeholder="news and security email updates" required>
+              <input type="email" value="" name="EMAIL" class="form-control email" id="mce-EMAIL" placeholder="email address" required>
               <div style="position: absolute; left: -5000px;"><input type="text" name="b_5620a8cb48b1076ba95552a8b_d95bc45325" value=""></div>
               <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-warning">
             </form>
           </div>
         </div>
+
+        <div class="modal-header">
+          <h4 class="modal-title">Download</h4>
+        </div>
+        <div style="padding-bottom: 50px;" class="modal-body">
+          <li><a style=""target="_blank"
+            href="http://sourceforge.net/projects/turnkeylinux/files/iso/turnkey-bitkey-13.0-wheezy-amd64.iso/download">BitKey ISO (64bit)</a></li>
+          <li><a target="_blank" href="http://releases.turnkeylinux.org/turnkey-bitkey/13.0-wheezy-amd64/">Cryptographic signatures and package manifest</a></li>
+        </div>
+
       </div>
     </div>
   </div>
