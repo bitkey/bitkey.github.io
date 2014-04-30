@@ -54,6 +54,11 @@ video {
     margin-bottom: 35px;
 }
 
+.btn-lg {
+    min-width: 180px;
+}
+
+
 /* navbar */
 .navbar {
     margin-bottom: 0;
@@ -130,6 +135,11 @@ video {
 
 .intro-text {
     font-size: 18px;
+}
+
+.intro-body .list-inline {
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 #mc_embed_signup {
