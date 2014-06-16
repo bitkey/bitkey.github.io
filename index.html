@@ -198,6 +198,7 @@
           <ul class="nav nav-tabs nav-justified">
             <li class="active"><a href="#single" data-toggle="tab">Single PC</a></li>
             <li><a href="#multiple" data-toggle="tab">Multiple PC's</a></li>
+            <li><a href="#paranoid" data-toggle="tab">Multiple PC's (paranoid)</a></li>
           </ul>
 
           <div class="tab-content">
@@ -244,14 +245,14 @@
               <li>Remove <i>black</i> data storage USB device</li>
               <li>Shutdown BitKey</li>
 
-              <h4>cold-online (transmit signed transaction)</h4>
+              <h4>cold-online (broadcast signed transaction)</h4>
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>cold-online</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
               <li>Insert <i>black</i> data storage USB device</li>
               <li>Open Electrum</li>
               <ul>
-                <li>Load signed transaction from <i>black</i> USB and transmit</li>
+                <li>Load signed transaction from <i>black</i> USB and broadcast</li>
               </ul>
               <li>Close Electrum</li>
               <li>Remove <i>black</i> data storage USB device</li>
@@ -292,9 +293,74 @@
               <li>In Electrum, import unsigned transaction, sign it, save to <i>black-shuttle</i> USB</li>
               <li>Remove <i>black-shuttle</i> USB</li>
 
-              <h4>Regular PC (transmit signed transaction)</h4>
+              <h4>Regular PC (broadcast signed transaction)</h4>
               <li>Insert <i>black-shuttle</i> USB</li>
-              <li>In Electrum, import signed transaction and transmit to network</li>
+              <li>In Electrum, import signed transaction and broadcast to network</li>
+            </div>
+
+            <div class="tab-pane fade" id="paranoid">
+
+              <p>The recommended workflow with multiple PC's is to use
+              another USB storage device, which we'll call
+              <i>black-shuttle</i> for transfering unsigned transactions
+              from your regular PC to BitKey cold-offline, and a
+              smartphone with QR code scanner to transfer from BitKey
+              cold-offline to regular PC.</p>
+
+              <h4>BitKey (create wallet)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-offline</code> from the bootmenu</li>
+              <li>Once the OS has loaded, remove BitKey device</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Select <code>create wallet</code></li>
+                <li>Write down mnemonic seed on paper (store in lockbox)</li>
+                <li>Display <i>master public key</i> and capture with QR code scanner on smartphone</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+
+              <h4>Regular PC (prepare unsigned transaction)</h4>
+              <li>Install Electrum</li>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Select <code>create watch-only wallet</code></li>
+                <li>Enter <i>master public key</i> (transfered from smartphone)</li>
+                <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+              </ul>
+              <li>Remove <i>black-shuttle</i> USB</li>
+
+              <h4>BitKey (import unsigned transaction)</h4>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>cold-offline</code> from the bootmenu</li>
+              <li>Once the OS has loaded, remove BitKey device</li>
+              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>Open file manager and copy unsigned transaction</li>
+              <li>Remove <i>black-shuttle</i> USB</li>
+
+              <h4>BitKey (sign transaction)</h4>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Import unsigned transaction</li>
+                <li>Sign transaction and save</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Open QR Code generator</li>
+              <ul>
+                <li>Insert the signed transaction data</li>
+                <li>Capture with QR Code scanner on smartphone</li>
+              </ul>
+              <li>Shutdown BitKey</li>
+
+              <h4>Regular PC (broadcast signed transaction)</h4>
+              <li>In Electrum, import signed transaction (transfered from smartphone)</li>
+              <li>Verify and broadcast to network</li>
             </div>
 
           </div>
