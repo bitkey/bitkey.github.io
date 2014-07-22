@@ -85,7 +85,9 @@
   <section id="overview" class="container content-section">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <h3>What is this?</h3>
+        <a id="faq" name="faq"></a><h2>FAQ</h2>
+
+        <h3>What is this project?</h3>
 
         <p>In its current form BitKey is a swiss army knife of handy
         Bitcoin tools built on top of Debian, which we created because
@@ -103,6 +105,12 @@
         build system</a> to create a self-contained read-only CD/USB
         stick with everything you need to perform highly secure
         air-gapped Bitcoin transactions.  </p>
+
+        <h3>How do I use BitKey?</h3>
+
+        <p>We've documented several common use cases right on this
+        website's <a href="#usage">usage section</a>. Click on the
+        various boot modes for instructions.</a>
 
         <h3>How secure are air-gapped systems?</h3>
 
@@ -122,63 +130,77 @@
 
         <h3>How much security does BitKey provide?</h3>
 
-        <p>It depends! Using BitKey in just the right way is currently
+        <p>It depends! At one extreme, using BitKey in just the right way is currently
         the <a
         href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions">closest you can get to perfectly secure Bitcoin transactions</a>
         (without doing them in your head).
 
+        <p>Even when you use BitKey in the most insecure mode possible
+        (e.g., <a href="#usage-hot" data-toggle="modal">hot-online
+        (?)</a>) it still provides better security than 99% of Bitcoin
+        users are getting from their web wallets and Bitcoin phone
+        apps.</p>
+
+        <p>If the theft of hundreds of millions of dollars worth of Bitcoin from
+        the Bitcoin exchanges has left you, like us, with a healthy sense
+        of paranoia, then you'll want to use BitKey in the <a href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions#kill-bitkey">most
+        secure way possible</a> in which case nobody in the world is
+        getting better security for their Bitcoin transactions.
+        Nobody.</p>
+
         <h3>Do I need to trust BitKey not to steal my Bitcoin?</h3>
 
-        <p>Not if you're careful. As a Bitcoin swiss army knife BitKey
-        supports many usage models. What's interesting is that this
-        includes at least one use case which doesn't require you to trust
-        BitKey at all. We call it the <em><a href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions#kill-bitkey">If I tell you I'll have to kill you</a></em> usage model. It provides almost perfect security even if BitKey itself is rotten to the
-        core.</p>
+        <p>Not if you're careful. In fact, if you have reason to worry
+        we encourage you not to trust BitKey. In the words of our dear
+        leader: <a href="http://nakamotoinstitute.org/trusted-third-parties/">
+        trusted third parties are a security hole.</a></p>
+
+        As a Bitcoin swiss army knife BitKey supports many usage models.
+        What's interesting is that this includes at least one use case
+        which doesn't require you to trust BitKey at all. We call it the
+        <em><a
+        href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions#kill-bitkey">If
+        I tell you I'll have to kill you</a></em> usage model. It
+        provides almost perfect security even if BitKey itself is rotten
+        to the core.</p>
 
         <p>Also, if you don't trust the binary version, you can always
         build BitKey <a href="https://github.com/bitkey/bitkey">from source</a>.</p>
+
+        <h3>Do I have to be ultra paranoid to use BitKey?</h3>
+
+        <p>No. We understand that people routinely trade off security
+        for convenience, otherwise they wouldn't get anything done.</p>
+
+        <p>We recognize that there is an inescapable trade off between
+        convenience and security and that risk is proportional to the
+        value of your wallet. So it doesn't make sense to enforce any
+        specific trade off. We want BitKey to help make the most
+        paranoid usage model practical for day to day use but at the
+        same time, we want to let the user decide how high (or low) to
+        raise the bar. It should be your choice.</p>
 
         <h3>Is BitKey perfect?</h3>
 
         <p>Not by a long shot. There's still a lot of room for
         improvement. Mostly in terms of improving the usability and
-        reducing the potential for human error.</p>
+        reducing the potential for human error. Also, adding support for
+        locally attached printers so you can print paper wallets.</p>
 
         <p>But for a solution to be useful it doesn't need to be
         perfect, just better than the alternatives, at least for some
         use cases.</p>
 
-        <p>Even when you use BitKey in the most insecure mode possible
-        (e.g., hot online), it still provides better security than 99%
-        of Bitcoin users are getting with their web wallets and Bitcoin
-        phone apps.</p>
+        <p>Unfortunately, the problem is many people currently using
+        Bitcoin don't understand the risks they are taking and place too
+        much trust on incredibly insecure solutions such as web based
+        Bitcoin wallets, accessed from a general purpose PC that is
+        installed, configured and used by a person who is not and will
+        never be a security expert. That might be OK for very low value
+        wallets that you wouldn't mind losing but beyond that it is very
+        foolish.</p>
 
-        <p>If you use BitKey in the <a
-        href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions#kill-bitkey">most
-        secure way possible</a> like we do, then nobody in the world is
-        getting better security for their Bitcoin transactions. Nobody.
-        You don't even have to trust BitKey itself. In fact, if you have
-        reason to worry we encourage you not to. Remember, <a href="http://nakamotoinstitute.org/trusted-third-parties/">
-        trusted third parties are a security hole.</a></p>
-
-        <p>Sure, no solution will ever provide you with perfect
-        security. People routinely trade off security for convenience,
-        otherwise they wouldn't get anything done. Unfortunately, the
-        problem is many people currently using Bitcoin don't understand
-        the risks they are taking and place too much trust on incredibly
-        insecure solutions such as web based Bitcoin wallets, accessed
-        from a general purpose PC that is installed, configured and used
-        by a person who is not and will never be a security expert. That
-        might be OK for very low value wallets that you wouldn't mind
-        losing but beyond that it is very foolish.</p>
-
-        <p>On the flip side, we recognize that there is an inescapable
-        trade off between convenience and security and that risk is
-        proportional to the value of your wallet. So it doesn't make
-        sense to enforce any specific trade off. We want BitKey to help
-        make the most paranoid usage model practical for day to day use
-        but at the same time, we want to let the user decide how high
-        (or low) to raise the bar. It should be your choice.</p>
+        <a id="usage" name="usage"></a><h2>Usage</h2>
 
         <h3>Booting the Live OS (red)</h3>
 
@@ -204,21 +226,21 @@
           </thead>
           <tbody>
             <tr>
-              <td><a href="#usage-cold" data-toggle="modal">cold-offline</a></td>
+              <td><a href="#usage-cold" data-toggle="modal">cold-offline (?)</a></td>
               <td>create</td>
               <td>sign</td>
               <td>high</td>
               <td>less</td>
             </tr>
             <tr>
-              <td><a href="#usage-cold" data-toggle="modal">cold-online</a></td>
+              <td><a href="#usage-cold" data-toggle="modal">cold-online (?)</a></td>
               <td>watch</td>
               <td>prepare</td>
               <td>high</td>
               <td>less</td>
             </tr>
             <tr>
-              <td><a href="#usage-hot" data-toggle="modal">hot-online</a></td>
+              <td><a href="#usage-hot" data-toggle="modal">hot-online (?)</a></td>
               <td>create &amp; watch</td>
               <td>prepare &amp; sign</td>
               <td>medium</td>
