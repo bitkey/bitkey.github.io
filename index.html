@@ -222,10 +222,25 @@
         <h3>How to get BitKey on physical media</h3>
 
         <p>BitKey is packaged as a system image that boots a
-        self-contained operating system from either a CDROM or a USB
-        flash drive.</p>
+        self-contained operating system from either USB drive, or better
+        yet a good old CDROM.</p>
 
-        <p><b>On CDROM:</b> You burn the ISO image to CDROM
+        <p><b>BitKey on a USB flash drive:</b> You can <a href="http://www.turnkeylinux.org/blog/iso2usb">write the ISO
+        image to a USB drive</a>. No partitioning or preparation of the
+        device is necessary.</b></p>
+
+        <p>If you're booting BitKey from USB, we recommend using a USB
+        flash drive with physical write protection. Unfortunately these
+        are a dying breed. We're now down to just Kanguru (e.g., <a
+        href="http://www.amazon.com/Kanguru-Flashblu-4GB-Flash-Drive/dp/B0012WDFV6">Kanguru
+        Flashblu</a>).</p>
+
+        <p>To further mitigate the risk of malicious modification we
+        recommend marking the USB drive where BitKey is installed so
+        that you don't accidentally use it for anything else and also
+        unplugging the USB drive after BitKey loads into RAM.</p>
+
+        <p><b>BitKey On CDROM:</b> You burn the ISO image to CDROM
         the same you <a href="https://www.google.com/search?q=burning+ISO+to+cdrom">burn
         any ISO image</a>.</p>
 
@@ -235,21 +250,6 @@
         days don't even have). Also you don't have to worry about
         BadBIOS style attacks against the USB stack. Sadly, computers
         with optical media readers are also a dying breed.</p>
-
-        <p><b>On a USB flash drive:</b> You can <a href="http://www.turnkeylinux.org/blog/iso2usb">write the ISO
-        image to a USB drive</a>. No partitioning or preparation of the
-        device is necessary.</b></p>
-
-        <p>If you're booting BitKey from USB, we recommend using a USB
-        flash drive with physical write protection. Unfortunately these
-        too are a dying breed. We're now down to just Kanguru (e.g., <a
-        href="http://www.amazon.com/Kanguru-Flashblu-4GB-Flash-Drive/dp/B0012WDFV6">Kanguru
-        Flashblu</a>).</p>
-
-        <p>To further mitigate the risk of malicious modification we
-        recommend marking the USB drive where BitKey is installed so
-        that you don't accidentally use it for anything else and also
-        unplugging the USB drive after BitKey loads into RAM.</p>
 
         <h3>Booting the Live OS (red)</h3>
 
