@@ -309,25 +309,33 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="usage-hot-label">Usage: Hot (online)</h4>
+          <h4 class="modal-title" id="usage-hot-label">Usage: Hot
+          Storage (online wallet)</h4>
         </div>
         <div class="modal-body">
-          <p>Fully functional Bitcoin client. This mode is appropriate for relatively small-medium Bitcoin wallets.</p>
+          <p>This mode trades off security for the convenience of not
+          having to sign transactions on a separate offline
+          computer. We recommend it for low-medium value wallets. It's
+          better than storing your wallet on a typical malware infested
+          PC.</p>
+          
+            <ul>
+              <li>Insert BitKey device and power on PC</li>
+              <li>Select <code>hot-online</code> from the bootmenu</li>
+              <li>Once the OS has loaded, remove BitKey device</li>
+              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Open Electrum</li>
+              <ul>
+                <li>Enter passhprase for secure encrypted storage</li>
+                <li>Select <code>create wallet</code></li>
+                <li>Write down mnemonic seed on paper (store in lockbox)</li>
+                <li>Prepare and sign Bitcoin transactions...</li>
+              </ul>
+              <li>Close Electrum</li>
+              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Shutdown BitKey</li>
+            </ul>
 
-          <li>Insert BitKey device and power on PC</li>
-          <li>Select <code>hot-online</code> from the bootmenu</li>
-          <li>Once the OS has loaded, remove BitKey device</li>
-          <li>Insert <i>black</i> data storage USB device</li>
-          <li>Open Electrum</li>
-          <ul>
-            <li>Enter passhprase for secure encrypted storage</li>
-            <li>Select <code>create wallet</code></li>
-            <li>Write down mnemonic seed on paper (store in lockbox)</li>
-            <li>Prepare and sign Bitcoin transactions...</li>
-          </ul>
-          <li>Close Electrum</li>
-          <li>Remove <i>black</i> data storage USB device</li>
-          <li>Shutdown BitKey</li>
         </div>
       </div>
     </div>
@@ -338,10 +346,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="usage-cold-label">Usage: Cold (online/offline)</h4>
+          <h4 class="modal-title" id="usage-cold-label">Usage: Cold
+          Storage (offline wallet)</h4>
         </div>
         <div class="modal-body">
-          <p>Functionality is split between the cold-online and cold-offline modes (prepare &amp; sign respectively). These modes are appropriate for large Bitcoin wallets and/or paranoid folks.</p>
+
+          <p>This mode trades off convenience for the security of
+          keeping your wallet offline in <a href="https://en.bitcoin.it/wiki/Cold_storage">cold storage</a>. Transactions are prepared in cold-online mode and signed in
+          cold-offline mode. This usage model is appropriate for
+          medium-high value Bitcoin wallets.</p>
+
+          <p>The most paranoid usage model assumes an evil BitKey is
+          part of the attack. It's the <a href="http://www.turnkeylinux.org/blog/closest-you-can-get-to-perfectly-secure-bitcoin-transactions">closest you can get to perfectly secure Bitcoin transactions</a> without doing them in your head.</p>
+
 
           <ul class="nav nav-tabs nav-justified">
             <li class="active"><a href="#single" data-toggle="tab">Single PC</a></li>
@@ -353,58 +370,69 @@
             <div class="tab-pane fade in active" id="single">
 
               <h4>cold-offline (create wallet)</h4>
-              <li>Insert BitKey device and power on PC</li>
-              <li>Select <code>cold-offline</code> from the bootmenu</li>
-              <li>Insert <i>black</i> data storage USB device</li>
-              <li>Open Electrum</li>
+
               <ul>
-                <li>Enter passhprase for secure encrypted storage</li>
-                <li>Select <code>create wallet</code></li>
-                <li>Write down mnemonic seed on paper (store in lockbox)</li>
+                  <li>Insert BitKey device and power on PC</li>
+                  <li>Select <code>cold-offline</code> from the bootmenu</li>
+                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Enter passhprase for secure encrypted storage</li>
+                    <li>Select <code>create wallet</code></li>
+                    <li>Write down mnemonic seed on paper (store in lockbox)</li>
+                  </ul>
+                  <li>Close Electrum</li>
+                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Shutdown BitKey</li>
               </ul>
-              <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
-              <li>Shutdown BitKey</li>
 
               <h4>cold-online (prepare transaction)</h4>
-              <li>Insert BitKey device and power on PC</li>
-              <li>Select <code>cold-online</code> from the bootmenu</li>
-              <li>Once the OS has loaded, remove BitKey device</li>
-              <li>Insert <i>black</i> data storage USB device</li>
-              <li>Open Electrum</li>
               <ul>
-                <li>Prepare transaction, save to <i>black</i> USB</li>
+                  <li>Insert BitKey device and power on PC</li>
+                  <li>Select <code>cold-online</code> from the bootmenu</li>
+                  <li>Once the OS has loaded, remove BitKey device</li>
+                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Prepare transaction, save to <i>black</i> USB</li>
+                  </ul>
+                  <li>Close electrum</li>
+                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Shutdown BitKey</li>
               </ul>
-              <li>Close electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
-              <li>Shutdown BitKey</li>
 
               <h4>cold-offline (sign transaction)</h4>
-              <li>Insert BitKey device and power on PC</li>
-              <li>Select <code>cold-offline</code> from the bootmenu</li>
-              <li>Insert <i>black</i> data storage USB device</li>
-              <li>Open Electrum</li>
               <ul>
-                <li>Enter passhprase for secure encrypted storage</li>
-                <li>Import unsigned transaction from <i>black</i> USB</li>
-                <li>Sign transaction and save to <i>black</i> USB</li>
-              </ul>
-              <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
-              <li>Shutdown BitKey</li>
+                  <li>Insert BitKey device and power on PC</li>
+                  <li>Select <code>cold-offline</code> from the bootmenu</li>
+                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Enter passhprase for secure encrypted storage</li>
+                    <li>Import unsigned transaction from <i>black</i> USB</li>
+                    <li>Sign transaction and save to <i>black</i> USB</li>
+                  </ul>
+                  <li>Close Electrum</li>
+                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Shutdown BitKey</li>
+
+               </ul>
 
               <h4>cold-online (broadcast signed transaction)</h4>
-              <li>Insert BitKey device and power on PC</li>
-              <li>Select <code>cold-online</code> from the bootmenu</li>
-              <li>Once the OS has loaded, remove BitKey device</li>
-              <li>Insert <i>black</i> data storage USB device</li>
-              <li>Open Electrum</li>
               <ul>
-                <li>Load signed transaction from <i>black</i> USB and broadcast</li>
-              </ul>
-              <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
-              <li>Shutdown BitKey</li>
+                  <li>Insert BitKey device and power on PC</li>
+                  <li>Select <code>cold-online</code> from the bootmenu</li>
+                  <li>Once the OS has loaded, remove BitKey device</li>
+                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Load signed transaction from <i>black</i> USB and broadcast</li>
+                  </ul>
+                  <li>Close Electrum</li>
+                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Shutdown BitKey</li>
+
+                </ul>
             </div>
 
             <div class="tab-pane fade" id="multiple">
@@ -412,38 +440,47 @@
               <p>The recommended workflow with multiple PC's is to use another USB storage device, which we'll call <i>black-shuttle</i>, for transfering data between your regular PC and BitKey cold-offline.</p>
 
               <h4>BitKey (create wallet)</h4>
-              <li>Insert BitKey device and power on PC</li>
-              <li>Select <code>cold-offline</code> from the bootmenu</li>
-              <li>Insert <i>black</i> data storage USB device</li>
-              <li>Open Electrum</li>
               <ul>
-                <li>Enter passhprase for secure encrypted storage</li>
-                <li>Select <code>create wallet</code></li>
-                <li>Write down mnemonic seed on paper (store in lockbox)</li>
-              </ul>
-              <li>Insert <i>black-shuttle</i> USB</li>
-              <li>In Electrum, export <i>master public key</i> to <i>black-shuttle</i> USB</li>
-              <li>Remove <i>black-shuttle</i> USB</li>
+                  <li>Insert BitKey device and power on PC</li>
+                  <li>Select <code>cold-offline</code> from the bootmenu</li>
+                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Enter passhprase for secure encrypted storage</li>
+                    <li>Select <code>create wallet</code></li>
+                    <li>Write down mnemonic seed on paper (store in lockbox)</li>
+                  </ul>
+                  <li>Insert <i>black-shuttle</i> USB</li>
+                  <li>In Electrum, export <i>master public key</i> to <i>black-shuttle</i> USB</li>
+                  <li>Remove <i>black-shuttle</i> USB</li>
+                </ul>
 
               <h4>Regular PC (prepare transaction)</h4>
-              <li>Install Electrum</li>
-              <li>Insert <i>black-shuttle</i> USB</li>
-              <li>Open Electrum</li>
               <ul>
-                <li>Select <code>create watch-only wallet</code></li>
-                <li>Enter <i>master public key</i></li>
-                <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+                  <li>Install Electrum</li>
+                  <li>Insert <i>black-shuttle</i> USB</li>
+                  <li>Open Electrum</li>
+                  <ul>
+                    <li>Select <code>create watch-only wallet</code></li>
+                    <li>Enter <i>master public key</i></li>
+                    <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+                  </ul>
+                  <li>Remove <i>black-shuttle</i> USB</li>
               </ul>
-              <li>Remove <i>black-shuttle</i> USB</li>
 
               <h4>BitKey (sign transaction)</h4>
-              <li>Insert <i>black-shuttle</i> USB</li>
-              <li>In Electrum, import unsigned transaction, sign it, save to <i>black-shuttle</i> USB</li>
-              <li>Remove <i>black-shuttle</i> USB</li>
+                  <ul>
+                      <li>Insert <i>black-shuttle</i> USB</li>
+                      <li>In Electrum, import unsigned transaction, sign it, save to <i>black-shuttle</i> USB</li>
+                      <li>Remove <i>black-shuttle</i> USB</li>
+
+                  </ul>
 
               <h4>Regular PC (broadcast signed transaction)</h4>
-              <li>Insert <i>black-shuttle</i> USB</li>
-              <li>In Electrum, import signed transaction and broadcast to network</li>
+                <ul>
+                  <li>Insert <i>black-shuttle</i> USB</li>
+                  <li>In Electrum, import signed transaction and broadcast to network</li>
+                </ul>
             </div>
 
             <div class="tab-pane fade" id="paranoid">
@@ -456,6 +493,7 @@
               cold-offline to regular PC.</p>
 
               <h4>BitKey (create wallet)</h4>
+              <ul>
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>cold-offline</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
@@ -470,8 +508,10 @@
               <li>Close Electrum</li>
               <li>Remove <i>black</i> data storage USB device</li>
               <li>Shutdown BitKey</li>
+              </ul>
 
               <h4>Regular PC (prepare unsigned transaction)</h4>
+              <ul>
               <li>Install Electrum</li>
               <li>Insert <i>black-shuttle</i> USB</li>
               <li>Open Electrum</li>
@@ -481,16 +521,20 @@
                 <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
               </ul>
               <li>Remove <i>black-shuttle</i> USB</li>
+              </ul>
 
               <h4>BitKey (import unsigned transaction)</h4>
+              <ul>
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>cold-offline</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
               <li>Insert <i>black-shuttle</i> USB</li>
               <li>Open file manager and copy unsigned transaction</li>
               <li>Remove <i>black-shuttle</i> USB</li>
+              </ul>
 
               <h4>BitKey (sign transaction)</h4>
+              <ul>
               <li>Open Electrum</li>
               <ul>
                 <li>Enter passhprase for secure encrypted storage</li>
@@ -505,10 +549,13 @@
                 <li>Capture with QR Code scanner on smartphone</li>
               </ul>
               <li>Shutdown BitKey</li>
+              </ul>
 
               <h4>Regular PC (broadcast signed transaction)</h4>
+              <ul>
               <li>In Electrum, import signed transaction (transfered from smartphone)</li>
               <li>Verify and broadcast to network</li>
+              </ul>
             </div>
 
           </div>
