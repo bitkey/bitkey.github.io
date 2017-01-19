@@ -45,6 +45,7 @@
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#overview">Overview</a></li>
           <li class="page-scroll"><a href="#usage">Usage</a></li>
+          <li class="page-scroll"><a href="#security">Security</a></li>
           <li class="page-scroll"><a href="#features">Features</a></li>
           <li class="page-scroll"><a href="#download">Download</a></li>
           <li class="page-scroll"><a href="#about">About</a></li>
@@ -67,7 +68,7 @@
             (slightly more) practical.</p>
 
             <ul class="list-inline">
-              <li><a href="#iso" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> Download (13.0.1)</a></li>
+              <li><a href="#iso" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> Download (14.1.0)</a></li>
               <li><a href="https://github.com/bitkey/bitkey" class="btn btn-info btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Source (GitHub)</span></a></li>
             </ul>
             
@@ -207,15 +208,14 @@
 
         <h3>Is BitKey perfect?</h3>
 
-        <p>Not by a long shot. There's still a lot of room for
-        improvement. Mostly in terms of improving the usability and
-        reducing the potential for human error. Also, adding support for
-        locally attached printers so you can print paper wallets. Stuff
-        like that.</p>
+        <p>No. There's room for improvement. Mostly in terms
+        of improving the usability and reducing the potential for human
+        error. Also, adding support for locally attached printers so you
+        can print paper wallets. Stuff like that.</p>
 
         <p>But for a solution to be useful it doesn't need to be
-        perfect, just better than the alternatives, at least for some
-        use cases.</p>
+        perfect, just better than the alternatives for some use
+        cases.</p>
 
         <p>Unfortunately, the problem is many people currently using
         Bitcoin don't understand the risks they are taking and place too
@@ -229,47 +229,78 @@
    </div>
   </section>
 
+  <!-- setup -->
+  <section id="setup" class="container content-section">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <a id="install"></a><h2>Installing BitKey</h2>
+        <p><b>BitKey on CDROM</b>: your use favorite program to burn the ISO to CDROM.
+        Nothing special. CDROMs are naturally read-only and tamper resistant.</p>
+        <p><b>BitKey on USB</b>: If you don't burn BitKey to a CDROM, writing BitKey to a
+        USB stick with a hardware read-write toggle (e.g., Kanguru FlashBlu) is
+        the next best thing.</p>
+        <p>On USB sticks without write protection, you can remove the BitKey USB after
+        booting as an additional security measure. BitKey loads into RAM so
+        after booting you no longer need the USB.</p>
+        <ol class="arabic">
+        <li><p>Insert USB stick and detect the device path:</p>
+        <pre class="literal-block">
+        $ dmesg|grep Attached | tail --lines=1
+        [583494.891574] sd 19:0:0:0: [sdf] Attached SCSI removable disk
+        </pre>
+        </li>
+        <li><p class="first">Write ISO to USB:</p>
+        <pre class="literal-block">
+        $ sudo dd if=path/to/bitkey.iso of=/dev/sdf
+        $ lsblk | grep sdf
+        sdf                                8:80   1   7.4G  1 disk
+        └─sdf1                             8:81   1   444M  1 part
+        </pre>
+        </li>
+
+    <h3>Data storage flash drive</h3>
+    <p>By default, BitKey stores your wallet encrypted on a USB flash drive AKA
+    USB stick.</p>
+    <p>It expects your flash drive to be vfat formatted. This is the standard
+    format for store bought drives. If this isn't the case, BitKey may have
+    trouble detecting your drive. In that case you can reformat the drive
+    from Windows, or on Linux / BitKey using the following steps:</p>
+    <ol class="arabic">
+    <li><p class="first">Insert data storage flash drive and detect the device path:</p>
+    <pre class="literal-block">
+    $ dmesg|grep Attached | tail --lines=1
+    [583494.891574] sd 19:0:0:0: [sda] Attached SCSI removable disk
+    </pre>
+    </li>
+    <li><p class="first">Reformat the drive:</p>
+    <pre class="literal-block">
+    $ sudo mkfs.vfat /dev/sda1
+    mkfs.fat 3.0.27 (2014-11-12)
+    </pre>
+    </li>
+    </ol>
+
+    </div>
+   </div>
+  </section>
+
   <!-- usage -->
   <section id="usage" class="container content-section">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
         <a id="usage" name="usage"></a><h2>Usage</h2>
 
-        <h3>How to get BitKey on physical media</h3>
+        <h3>Demo</h3>
 
-        <p>BitKey is packaged as a system image that boots a
-        self-contained operating system from either a USB drive, or a
-        CDROM.</p>
+        <video controls>
+          <source src="img/screencast.webm" type="video/webm">
+          <img src="img/screenshot.png" title="video not supported by browser">
+        </video>
 
-        <p><b>1) BitKey on a USB flash drive:</b> You can <a href="https://www.turnkeylinux.org/blog/iso2usb">write the ISO
-        image to a USB drive</a>. No partitioning or preparation of the
-        device is necessary.</b></p>
+      <h3>Boot modes</h3>
 
-        <p>If you're booting BitKey from USB, we recommend using a USB
-        flash drive with physical write protection. Unfortunately these
-        are a dying breed. We're now down to just Kanguru (e.g., <a
-        href="https://www.amazon.com/Kanguru-Flashblu-4GB-Flash-Drive/dp/B0012WDFV6">Kanguru
-        Flashblu</a>).</p>
-
-        <p>To further mitigate the risk of malicious modification we
-        recommend marking the USB drive where BitKey is installed so
-        that you don't accidentally use it for anything else and also
-        unplugging the USB drive after BitKey loads into RAM.</p>
-
-        <p><b>2) BitKey On CDROM:</b> You burn the ISO image to CDROM
-        the same you <a href="https://www.google.com/search?q=burning+ISO+to+cdrom">burn
-        any ISO image</a>.</p>
-
-        <p>Booting from CDROM is more secure because a CDROM is
-        physically read-only so you don't have to worry about backdoors
-        in the write protection mechanism (which most USB drives these
-        days don't even have). Also you don't have to worry about
-        BadBIOS style attacks against the USB stack. Sadly, computers
-        with optical media readers are also a dying breed.</p>
-
-        <h3>Booting the Live OS (red)</h3>
-
-        <p>BitKey is a single image supporting two use cases via three modes of operation. At boot time, you select the desired mode from the bootloader menu:</p>
+        <p>BitKey Live CD/USB supports three modes of operation
+        selected from a boot time menu.</p>
 
         <table class="table">
           <thead>
@@ -278,6 +309,7 @@
               <td>Wallet</td> 
               <td>Transactions</td>
               <td>Security</td>
+              <td>Background</td>
               <td>Convenience</td>
             </tr>
           </thead>
@@ -287,6 +319,7 @@
               <td>create</td>
               <td>sign</td>
               <td>high</td>
+              <td>green for safe</td>
               <td>less</td>
             </tr>
             <tr>
@@ -294,6 +327,7 @@
               <td>watch</td>
               <td>prepare</td>
               <td>high</td>
+              <td>blue for info</td>
               <td>less</td>
             </tr>
             <tr>
@@ -301,23 +335,229 @@
               <td>create &amp; watch</td>
               <td>prepare &amp; sign</td>
               <td>medium</td>
+              <td>red for danger</td>
               <td>more</td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Data storage (black)</h3>
 
-        <p>In addition to the BitKey device, you'll need a <i>black</i> USB key which will serve as storage for encrypted wallet files, unencrypted master public key for watch-only mode, and optionally as a data shuttle for unsigned and signed transactions between cold online and offline modes.</p>
+        <h3>High security - Cold storage boot modes</h3>
+        <p>Two cold storage modes:</p>
 
-        <video controls>
-          <source src="img/screencast.webm" type="video/webm">
-          <img src="img/screenshot.png" title="video not supported by browser">
-        </video>
+        <ol class="arabic">
+            <li><p class="first"><b>cold-offline</b>: create wallet, sign
+            transactions. In this mode, the desktop background is green (mnemonic for cool and safe)</p>
+        </li>
+        <li><p class="first"><b>cold-online</b>: watch wallet, prepare
+            transactions. In this mode, the desktop background is blue (mnemonic for cool and informative)</p>
+        </li>
+        </ol>
+
+        <p>If the instructions are carefully followed, cold storage modes creates
+        an airgap which ensures that your wallet's private keys are never loaded
+        into RAM on a computer connected to the Internet.</p>
+
+        <h3>Medium security - Hot-online boot mode</h3>
+        <p>In this mode the desktop background is red (mnemonic for hot and dangerous)</p>
+        <p>Allows you to create &amp; watch wallet, prepare &amp; sign transactions.</p>
+        <p>In hot online mode, the private keys are known to a computer connected
+        to the Internet. This is the most convenient mode because you only need
+        one computer. After booting BitKey resides in RAM and saves nothing to
+        your hard drive.</p>
+
+        <p>The flip side is smaller security margins:</p>
+        <ul class="arabic simple">
+            <li><p>You need to trust that your copy of BitKey hasn't been tampered with
+        and that the original signed BitKey image hasn't been
+        compromised.</p></li>
+            <li><p>If you use a network enabled app (e.g., Chromium) and an attacker
+        exploits a zero-day vulnerability to gain access to your online
+        system, say goodbye to those Bitcoins!</p></li>
+        </ul>
+
+        <h3>Low security - Hot storage on your PC/phone</h3>
+        <p>In this mode you don't use BitKey or any hardware wallet type device.
+        Your wallet's private keys are stored on your phone or PC and known to
+        an Internet enabled device that is vulnerable (or will be sometime in
+        the future) to the efforts of thieves who would like nothing more than
+        to steal your Bitcoin.</p>
+        <p>You rely on the magical power of wishful thinking. You're not important
+        enough to get hacked and any opportunistic malware infection you do get
+        is not going to include any Bitcoin stealing functionailty. Right?
+        Right! Good luck!</p>
 
       </div>
     </div>
   </section>
+
+  <section id="bootmodes" class="container content-section">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h2>Paranoid brainwallet support</h2>
+
+        <p>Hardest to use but leaves no trace of wallet keys in any storage medium.
+        Minimizes trust in BitKey. Your wallet keys are only stored in your head.</p>
+
+        <p>This workflow is inspired by <a href="https://maxtaco.github.io/bitcoin/2014/01/16/how-jason-bourne-stores-his-bitcoin/">how Jason Bourne stores his Bitcoin</a>.</p>
+
+        <h3>Generating wallet</h3>
+        <ol class="arabic simple">
+        <li>Boot BitKey in cold-offline mode, remove BitKey USB</li>
+        <li>Use Warpwallet to create a secure brainwallet</li>
+        <li>Save public Bitcoin address (e.g., scan qrcode)</li>
+        <li>To ensure private keys do not survive in RAM, turn off computer
+        running BitKey and disconnect power source for 15 minutes.</li>
+        </ol>
+        <p>After generating wallet, you can send Bitcoin to this address.</p>
+
+        <h3>Generating unsigned transaction step</h3>
+        <p>This step is easiest to do from an Electrum watch-wallet on a PC, but
+        you can also do it from BitKey:</p>
+        <ol class="arabic">
+        <li><p class="first">Boot BitKey in cold-online mode, remove BitKey USB</p>
+        </li>
+        <li><p class="first">Restore watch-only wallet and run Electrum, from command line:</p>
+        <pre class="literal-block">
+        $ electrum restore $PUBLIC_ADDRESS
+        $ electrum
+        </pre>
+        </li>
+        <li>Insert USB stick for storing unsigned transaction
+        </li>
+        <li>Fill in recipient under Send tab and &quot;Save&quot; unsigned
+        transaction to USB at /media/usb/
+        </li>
+        <li><p class="first">Shutdown/Reboot BitKey</p>
+        </li>
+        </ol>
+
+        <h3>Signing transaction step</h3>
+        <ol class="arabic">
+        <li><p class="first">Boot BitKey in cold-offline mode, remove BitKey USB</p>
+        </li>
+        <li><p class="first">Insert USB stick where you stored unsigned transaction. Copy to RAM
+        and remove from disk:</p>
+        <pre class="literal-block">
+        $ cp /media/usb/unsigned.txt ~/     #  uses RAM for storage
+        $ srm /media/usb/unsigned.txt       # secure delete unsigned transaction
+        </pre>
+        </li>
+        <li><p class="first">Unplug USB stick</p>
+        </li>
+        <li><p class="first">Use Warpwallet to restore brainwallet private key</p>
+        </li>
+        <li><p class="first">Launch Electrum from command line so that it stores wallet in RAM:</p>
+        <pre class="literal-block">
+        $ electrum -w /tmp/brainwallet
+        </pre>
+        </li>
+        <li><p class="first">Import private key and sign transaction</p>
+        <ul class="simple">
+        <li>In the Electrum Install Wizard, select 'Restore a wallet or import keys'</li>
+        <li>Cut and paste the private key, click Next</li>
+        <li>Click Next again (you don't need encryption for a wallet in RAM)</li>
+        <li>Tools &gt; Load transaction &gt; From file</li>
+        <li>Verify Outputs, Sign &amp; Save signed transaction</li>
+        </ul>
+        </li>
+        <li><p class="first">Create a QRCode for the signed transaction:</p>
+        <ul class="simple">
+        <li>Open Signed transaction in text editor</li>
+        <li>Open qrcode app: cut and paste hex of signed transaction</li>
+        </ul>
+        </li>
+        <li><p class="first">Scan qrcode of signed transaction with phone and broadcast
+        transaction to network.</p>
+        </li>
+        <li><p class="first">Turn off BitKey, disconnect power source, wait 15 minutes to clear
+        RAM</p>
+        </li>
+        </ol>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- security -->
+  <section id="security" class="container content-section">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h2>Security guidelines</h2>
+
+        <ul class="simple">
+            <li><b>Defense in depth</b>: increase security by forcing attackers to overcome a
+        plurality of obstacles.</li>
+            <li><b>Minimize trust</b>: minimize the number of third parties that need to be
+        trusted, and minimize the degree of trust that needs to be placed on
+        the existing trusted parties (e.g., BitKey developers to a degree).</li>
+            <li><b>Minimized complexity</b>: attack surface grows with complexity, so
+        decrease complexity by minimizing number of components, using simpler
+        components (e.g., chromium with webapps)</li>
+            <li><b>Minimum privilege level policy</b>: for example, if a component doesn't
+        need network access, don't give it to it. If a mode doesn't need
+        network access, enforce lack of network access.</li>
+            <li><b>Transparency and verifiability</b>: only use open source components who's
+        integrity can be verified in principle and in which violations of
+        integrity are more likely to be detected.</li>
+            <li><b>Assume and attempt to compensate for human
+                    fallibility</b>: avoid assuming
+        users are advanced Bitcoin and security experts. Do the most to
+        protect them from natural mistakes and lack of awareness with more
+        secure defaults, friendly reminders, health warnings, tools for
+        verifying against mistakes.</li>
+        </ul>
+
+        <p>See <a
+            href="https://github.com/bitkey/bitkey/blob/master/README.rst">README</a>
+        in source code for specifics.</p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- build -->
+  <section id="build" class="container content-section">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h2>How to build from source</h2>
+
+        <p>BitKey is built with <a class="reference external" href="http://www.turnkeylinux.org/tkldev">TKLDev</a>, the TurnKey GNU/Linux build system.</p>
+        <ol class="arabic">
+        <li><p class="first">Deploy TKLDev (e.g., as a local VM)</p>
+        </li>
+        <li><p class="first">SSH into TKLDev, clone bitkey git repo and
+            run make:</p>
+        <pre class="literal-block">
+
+        ssh tkldev
+
+        cd products
+        git-clone https://github.com/bitkey/bitkey
+
+        cd bitkey
+        make        
+
+        </pre>
+        </ul>
+        </ol>
+
+        <p>You're done, enjoy your new BitKey ISO file:</p>
+        <pre>
+        
+        ls -la build/product.iso 
+        -rw-r--r-- 1 root root 466616320 Jan 17 21:46 build/product.iso
+
+        </pre>
+
+      </div>
+    </div>
+  </section>
+
 
   <!-- usage modals -->
   <div id="usage-hot" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="usage-hot-label" aria-hidden="true">
@@ -339,7 +579,7 @@
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>hot-online</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
-              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Insert data storage USB device</li>
               <li>Open Electrum</li>
               <ul>
                 <li>Enter passhprase for secure encrypted storage</li>
@@ -348,7 +588,7 @@
                 <li>Prepare and sign Bitcoin transactions...</li>
               </ul>
               <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Remove data storage USB device</li>
               <li>Shutdown BitKey</li>
             </ul>
 
@@ -390,7 +630,7 @@
               <ul>
                   <li>Insert BitKey device and power on PC</li>
                   <li>Select <code>cold-offline</code> from the bootmenu</li>
-                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Insert data storage USB device</li>
                   <li>Open Electrum</li>
                   <ul>
                     <li>Enter passhprase for secure encrypted storage</li>
@@ -398,7 +638,7 @@
                     <li>Write down mnemonic seed on paper (store in lockbox)</li>
                   </ul>
                   <li>Close Electrum</li>
-                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Remove data storage USB device</li>
                   <li>Shutdown BitKey</li>
               </ul>
 
@@ -407,13 +647,13 @@
                   <li>Insert BitKey device and power on PC</li>
                   <li>Select <code>cold-online</code> from the bootmenu</li>
                   <li>Once the OS has loaded, remove BitKey device</li>
-                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Insert data storage USB device</li>
                   <li>Open Electrum</li>
                   <ul>
-                    <li>Prepare transaction, save to <i>black</i> USB</li>
+                    <li>Prepare transaction, save to USB</li>
                   </ul>
                   <li>Close electrum</li>
-                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Remove data storage USB device</li>
                   <li>Shutdown BitKey</li>
               </ul>
 
@@ -421,15 +661,15 @@
               <ul>
                   <li>Insert BitKey device and power on PC</li>
                   <li>Select <code>cold-offline</code> from the bootmenu</li>
-                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Insert data storage USB device</li>
                   <li>Open Electrum</li>
                   <ul>
                     <li>Enter passhprase for secure encrypted storage</li>
-                    <li>Import unsigned transaction from <i>black</i> USB</li>
-                    <li>Sign transaction and save to <i>black</i> USB</li>
+                    <li>Import unsigned transaction from USB</li>
+                    <li>Sign transaction and save to USB</li>
                   </ul>
                   <li>Close Electrum</li>
-                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Remove data storage USB device</li>
                   <li>Shutdown BitKey</li>
 
                </ul>
@@ -439,13 +679,13 @@
                   <li>Insert BitKey device and power on PC</li>
                   <li>Select <code>cold-online</code> from the bootmenu</li>
                   <li>Once the OS has loaded, remove BitKey device</li>
-                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Insert data storage USB device</li>
                   <li>Open Electrum</li>
                   <ul>
-                    <li>Load signed transaction from <i>black</i> USB and broadcast</li>
+                    <li>Load signed transaction from USB and broadcast</li>
                   </ul>
                   <li>Close Electrum</li>
-                  <li>Remove <i>black</i> data storage USB device</li>
+                  <li>Remove data storage USB device</li>
                   <li>Shutdown BitKey</li>
 
                 </ul>
@@ -453,48 +693,48 @@
 
             <div class="tab-pane fade" id="multiple">
 
-              <p>The recommended workflow with multiple PC's is to use another USB storage device, which we'll call <i>black-shuttle</i>, for transfering data between your regular PC and BitKey cold-offline.</p>
+              <p>The recommended workflow with multiple PC's is to use another USB storage device, which we'll call <i>shuttle</i>, for transfering data between your regular PC and BitKey cold-offline.</p>
 
               <h4>BitKey (create wallet)</h4>
               <ul>
                   <li>Insert BitKey device and power on PC</li>
                   <li>Select <code>cold-offline</code> from the bootmenu</li>
-                  <li>Insert <i>black</i> data storage USB device</li>
+                  <li>Insert data storage USB device</li>
                   <li>Open Electrum</li>
                   <ul>
                     <li>Enter passhprase for secure encrypted storage</li>
                     <li>Select <code>create wallet</code></li>
                     <li>Write down mnemonic seed on paper (store in lockbox)</li>
                   </ul>
-                  <li>Insert <i>black-shuttle</i> USB</li>
-                  <li>In Electrum, export <i>master public key</i> to <i>black-shuttle</i> USB</li>
-                  <li>Remove <i>black-shuttle</i> USB</li>
+                  <li>Insert <i>shuttle</i> USB</li>
+                  <li>In Electrum, export <i>master public key</i> to <i>shuttle</i> USB</li>
+                  <li>Remove <i>shuttle</i> USB</li>
                 </ul>
 
               <h4>Regular PC (prepare transaction)</h4>
               <ul>
                   <li>Install Electrum</li>
-                  <li>Insert <i>black-shuttle</i> USB</li>
+                  <li>Insert <i>shuttle</i> USB</li>
                   <li>Open Electrum</li>
                   <ul>
                     <li>Select <code>create watch-only wallet</code></li>
                     <li>Enter <i>master public key</i></li>
-                    <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+                    <li>Prepare transaction, save to <i>shuttle</i> USB</li>
                   </ul>
-                  <li>Remove <i>black-shuttle</i> USB</li>
+                  <li>Remove <i>shuttle</i> USB</li>
               </ul>
 
               <h4>BitKey (sign transaction)</h4>
                   <ul>
-                      <li>Insert <i>black-shuttle</i> USB</li>
-                      <li>In Electrum, import unsigned transaction, sign it, save to <i>black-shuttle</i> USB</li>
-                      <li>Remove <i>black-shuttle</i> USB</li>
+                      <li>Insert <i>shuttle</i> USB</li>
+                      <li>In Electrum, import unsigned transaction, sign it, save to <i>shuttle</i> USB</li>
+                      <li>Remove <i>shuttle</i> USB</li>
 
                   </ul>
 
               <h4>Regular PC (broadcast signed transaction)</h4>
                 <ul>
-                  <li>Insert <i>black-shuttle</i> USB</li>
+                  <li>Insert <i>shuttle</i> USB</li>
                   <li>In Electrum, import signed transaction and broadcast to network</li>
                 </ul>
             </div>
@@ -503,7 +743,7 @@
 
               <p>The recommended workflow with multiple PC's is to use
               another USB storage device, which we'll call
-              <i>black-shuttle</i> for transfering unsigned transactions
+              <i>shuttle</i> for transfering unsigned transactions
               from your regular PC to BitKey cold-offline, and a
               smartphone with QR code scanner to transfer from BitKey
               cold-offline to regular PC.</p>
@@ -513,7 +753,7 @@
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>cold-offline</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
-              <li>Insert <i>black</i> data storage USB device</li>
+              <li>Insert <i>wallet</i> data storage USB device</li>
               <li>Open Electrum</li>
               <ul>
                 <li>Enter passhprase for secure encrypted storage</li>
@@ -522,21 +762,21 @@
                 <li>Display <i>master public key</i> and capture with QR code scanner on smartphone</li>
               </ul>
               <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Remove <i>wallet</i> data storage USB device</li>
               <li>Shutdown BitKey</li>
               </ul>
 
               <h4>Regular PC (prepare unsigned transaction)</h4>
               <ul>
               <li>Install Electrum</li>
-              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>Insert <i>shuttle</i> USB</li>
               <li>Open Electrum</li>
               <ul>
                 <li>Select <code>create watch-only wallet</code></li>
                 <li>Enter <i>master public key</i> (transfered from smartphone)</li>
-                <li>Prepare transaction, save to <i>black-shuttle</i> USB</li>
+                <li>Prepare transaction, save to <i>shuttle</i> USB</li>
               </ul>
-              <li>Remove <i>black-shuttle</i> USB</li>
+              <li>Remove <i>shuttle</i> USB</li>
               </ul>
 
               <h4>BitKey (import unsigned transaction)</h4>
@@ -544,9 +784,9 @@
               <li>Insert BitKey device and power on PC</li>
               <li>Select <code>cold-offline</code> from the bootmenu</li>
               <li>Once the OS has loaded, remove BitKey device</li>
-              <li>Insert <i>black-shuttle</i> USB</li>
+              <li>Insert <i>shuttle</i> USB</li>
               <li>Open file manager and copy unsigned transaction</li>
-              <li>Remove <i>black-shuttle</i> USB</li>
+              <li>Remove <i>shuttle</i> USB</li>
               </ul>
 
               <h4>BitKey (sign transaction)</h4>
@@ -558,7 +798,7 @@
                 <li>Sign transaction and save</li>
               </ul>
               <li>Close Electrum</li>
-              <li>Remove <i>black</i> data storage USB device</li>
+              <li>Remove <i>wallet</i> data storage USB device</li>
               <li>Open QR Code generator</li>
               <ul>
                 <li>Insert the signed transaction data</li>
@@ -633,7 +873,7 @@
           to CDROM</a>. Alternatively, you can build the ISO image yourself from source.</p>
           
           <ul class="list-inline">
-            <li><a href="#iso" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> Download (13.0.1)</a></li>
+            <li><a href="#iso" data-toggle="modal" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> Download (14.1.0)</a></li>
             <li><a href="https://github.com/bitkey/bitkey" class="btn btn-info btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Source (GitHub)</span></a></li>
           </ul>
         </div>
@@ -653,12 +893,12 @@
 
         <div style="padding-bottom: 30px;" class="modal-body">
           <p>Download the BitKey ISO image and burn it to a CDROM (the
-          read-only kind) or <a href="https://www.turnkeylinux.org/blog/iso2usb">USB flash drive</a>.</p>
+          read-only kind) or USB flash drive.</p>
 
           <div class="text-center">
-            <a target="_blank" href="https://mirror.turnkeylinux.org/turnkeylinux/images/iso/turnkey-bitkey-13.0.1-wheezy-amd64.iso" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> BitKey ISO (64bit)</a>
+            <a target="_blank" href="http://mirror.turnkeylinux.org/turnkeylinux/images/iso/turnkey-bitkey-14.1.0-jessie-amd64.iso" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download"></span> BitKey ISO (64bit)</a>
             <p style="font-size: 13px; padding-top: 10px;"><a
-                target="_blank" href="https://releases.turnkeylinux.org/turnkey-bitkey/13.0.1-wheezy-amd64/">Cryptographic signatures and package manifest</a></p>
+                target="_blank" href="https://releases.turnkeylinux.org/turnkey-bitkey/14.1.0-jessie-amd64/">Cryptographic signatures and package manifest</a></p>
           </div>
 
         </div>

@@ -33,6 +33,27 @@ p {
     line-height: 1.5;
 }
 
+.content-section ol, .content-section li {
+    margin-left: 0px;
+    padding-left: 15px;
+}
+
+.content-section {
+
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.content-section p {
+
+    margin: 0 0 20px;
+}
+
+.content-section h3 {
+    margin-top: 35px;
+
+}
+
 a {
     color: #5b7ade;
     text-decoration: underline;
@@ -118,6 +139,10 @@ video {
 }
 
 .content-section {
+    padding-top: 50px;
+}
+
+.content-section#overview {
     padding-top: 150px;
 }
 
@@ -134,6 +159,10 @@ video {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.content-section li {
+    margin-top: 10px;
 }
 
 .intro-body {
