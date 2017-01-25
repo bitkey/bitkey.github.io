@@ -425,6 +425,57 @@
         </ol>
         <p>After generating wallet, you can send Bitcoin to this address.</p>
 
+        <h3>Warpwallet Public Service Announcement</h3>
+
+        <p><b>Do not use Warpwallet without a salt</b></p>
+        
+        <p>Unfortunately, Warpwallet makes it foolishly easy to skip the
+        part where you input your e-mail as salt. Providing a salt mixes
+        it in with the passphrase you provide. Non-experts may not
+        realize how important this is. Without the salt, attackers can
+        attempt to crack all Warpwallets simultaneously. With a salt,
+        they have to divide their cracking power amongst a list of
+        suspected e-mails. Cracking a million salted Warpwallets is a
+        million times harder than cracking a million unsalted
+        Warpwallets.</p>
+
+        <p>Using a salt gets you much more security risk free. There are
+        no privacy implications and your e-mail is never exposed
+        anywhere. In fact, you can use any e-mail you want, as long as
+        you're sure you won't forget it.</p>
+
+        <p>So for the final time... salt your Warpwallet! Do it!</p>
+        
+        <p><b>Creating a secure passphrase and remembering it is hard</b></p>
+        <ol class="arabic">
+        <li><p class="first">Humans are poor sources of randomness and much more predictable using
+        statistical models than they think. Technology is ever moving forward
+        and cracking techniques always get better, never worse. You may not
+        be familiar with the state of the art, so be extra careful.</p>
+        <p>The ideal passphrase is 6 to 8 truly random diceware words. If you're
+        going to try and come up with a random passphrase yourself, be
+        paranoid. They really are out to get you. At least use zxcvbn to
+        measure passphrase strength. It's not perfect, but it should give you
+        a clue. You'll want at least 65 bits of entropy for a salted
+        warpwallet, especially if you are going to be storing funds
+        long-term.</p>
+        <p><b>DO NOT USE KNOWN PHRASES, QUOTES OR SENTENCES FROM A BOOK.</b></p>
+        </li>
+        <li><p class="first">More wallets are lost to routine forgetfulness than sophisticated
+        theft. If you're not continually accessing your Warpwallet there is a
+        very high likelyhood you will eventually forget your passphrase after
+        a few months or a few years. You only need to forget a single
+        character for your wallet to be lost forever. This risk needs to be
+        balanced with the risks of making a paper backup.</p>
+        <p>Consider making a paper backup of your passphrase and destroying it
+        only when you are absolutely sure you will not forget it, then use
+        spaced reptition learning to ensure it stays in memory until you want
+        to access the funds.</p>
+        </li>
+        </ol>
+
+        <p>Thanks to <a href="https://rya.nc/about.html">Ryan Castellucci</a> for inspiring this section.</p>
+
         <h3>Generating unsigned transaction step</h3>
         <p>This step is easiest to do from an Electrum watch-wallet on a PC, but
         you can also do it from BitKey:</p>
