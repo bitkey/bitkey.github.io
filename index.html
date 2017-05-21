@@ -22,6 +22,9 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-49403813-1', 'bitkey.io');
+    ga('require', 'outboundLinkTracker', {
+      events: ['click', 'auxclick', 'contextmenu']
+    });
     ga('send', 'pageview');
   </script>
 
@@ -1045,6 +1048,7 @@
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script src="js/bitkey.js"></script>
+  <script async src="js/autotrack.js"></script>
 </body>
 
 </html>
